@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
   <title>과외 프로필 | Home</title>
+
   <style>
     :root{
       --bg:#0b0f19;
-      --card:#111827;
+      --card:rgba(17,24,39,.72);
+      --card2:rgba(255,255,255,.06);
       --text:#e5e7eb;
-      --muted:#a3a9b6;
+      --muted:#b6bfcc;
+      --muted2:#9aa3b2;
       --line:rgba(255,255,255,.10);
       --accent:#60a5fa;
       --accent2:#a78bfa;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow: 0 12px 34px rgba(0,0,0,.38);
       --radius: 18px;
+      --radius2: 14px;
     }
     *{box-sizing:border-box}
     body{
@@ -23,128 +27,39 @@
       font-family: system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 0%, rgba(96,165,250,.16), transparent 55%),
-        radial-gradient(900px 500px at 85% 0%, rgba(167,139,250,.14), transparent 60%),
+        radial-gradient(900px 500px at 15% 0%, rgba(96,165,250,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 0%, rgba(167,139,250,.16), transparent 60%),
         var(--bg);
-      padding-bottom: 92px; /* bottom nav 공간 */
+      padding-bottom: 92px; /* bottom nav */
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:980px; margin:0 auto; padding:26px 18px 40px;}
-    .top{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 8px 0 18px;
-    }
-    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.2px;}
-    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      color:var(--muted); font-size:13px;
-    }
-
+    .wrap{max-width:980px; margin:0 auto; padding:26px 18px 44px;}
     .card{
       border:1px solid var(--line);
-      background:rgba(17,24,39,.65);
+      background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
 
-    /* 큰 메인 박스 */
-    .hero{
-      padding:16px;
+    /* Top bar */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding: 8px 0 18px;
     }
-    .hero-grid{
-      display:grid; grid-template-columns: 340px 1fr;
-      gap:16px;
-      align-items:stretch;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.2px;
     }
-    @media (max-width: 860px){
-      .hero-grid{grid-template-columns: 1fr;}
-    }
-
-    /* 프로필 이미지 박스 */
-    .profile-box{
+    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));}
+    .right-tools{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:14px;
-      display:flex; flex-direction:column; gap:12px;
-      min-height: 320px;
-    }
-    .avatar{
-      width:100%;
-      aspect-ratio: 4 / 5;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(96,165,250,.18), rgba(167,139,250,.14));
-      overflow:hidden;
-      display:grid;
-      place-items:center;
-      color:rgba(229,231,235,.75);
-      font-weight:750;
-      letter-spacing:.3px;
-    }
-    .avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .tags{display:flex; gap:8px; flex-wrap:wrap;}
-    .tag{
-      font-size:12px; color:var(--text);
-      padding:7px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-    }
-
-    /* 오른쪽 정보 */
-    .info{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:16px;
-      display:flex; flex-direction:column;
-      gap:14px;
-    }
-
-    h1{
-      margin:0;
-      font-size: 26px;
-      line-height:1.25;
-      letter-spacing: -.2px;
-    }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      line-height:1.6;
-      font-size:14px;
-    }
-
-    .section{
-      border-top:1px solid var(--line);
-      padding-top:12px;
-    }
-    .h2{
-      margin:0 0 8px;
-      font-size:14px;
-      color:rgba(229,231,235,.92);
-      letter-spacing:.2px;
-    }
-    .list{
-      margin:0;
-      padding-left:18px;
-      color:var(--text);
-      line-height:1.7;
-      font-size:14px;
-    }
-    .list .muted{color:var(--muted);}
-    .cta{
-      display:flex; gap:10px; flex-wrap:wrap;
-      padding-top:4px;
+      color:var(--muted2); font-size:13px;
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -152,42 +67,180 @@
       border-radius:12px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.03);
-      font-weight:750;
+      font-weight:850;
       font-size:14px;
+      line-height:1;
+      white-space:nowrap;
     }
     .btn.primary{
-      border-color: rgba(96,165,250,.35);
-      background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(167,139,250,.14));
+      border-color: rgba(96,165,250,.45);
+      background: linear-gradient(135deg, rgba(96,165,250,.22), rgba(167,139,250,.14));
     }
 
-    /* 메인 카드 아래 블록 */
-    .below{
-      margin-top:16px;
+    /* Hero card */
+    .hero{padding:18px;}
+    .hero-grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
+      grid-template-columns: 320px 1fr;
+      gap:16px;
+      align-items:stretch;
     }
     @media (max-width: 860px){
-      .below{grid-template-columns: 1fr;}
+      .hero-grid{grid-template-columns:1fr;}
     }
-    .mini{
+
+    /* Left profile */
+    .profile{
+      border:1px solid var(--line);
+      background:var(--card2);
+      border-radius:var(--radius2);
       padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
     }
-    .mini p{
+    .avatar{
+      width:100%;
+      aspect-ratio: 4 / 5;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(96,165,250,.20), rgba(167,139,250,.16));
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      color:rgba(229,231,235,.8);
+      font-weight:900;
+      letter-spacing:.4px;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+
+    .chips{display:flex; gap:8px; flex-wrap:wrap;}
+    .chip{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+    }
+
+    /* Right info */
+    .info{
+      border:1px solid var(--line);
+      background:var(--card2);
+      border-radius:var(--radius2);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .headline{
       margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:14px;
+      font-size:28px;
+      line-height:1.18;
+      letter-spacing:-.3px;
     }
-    .mini .strong{color:var(--text); font-weight:800;}
-    .track-grid{
+    .one-liner{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.65;
+    }
+
+    .split{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:12px;
-      margin-top:10px;
+      margin-top:6px;
     }
     @media (max-width: 860px){
-      .track-grid{grid-template-columns: 1fr;}
+      .split{grid-template-columns:1fr;}
+    }
+
+    .box{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:14px;
+      padding:12px;
+    }
+    .label{
+      font-size:13px;
+      color:rgba(229,231,235,.92);
+      margin:0 0 8px;
+      font-weight:850;
+      letter-spacing:.2px;
+    }
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.75;
+    }
+
+    /* Achievement badges */
+    .badges{display:flex; flex-wrap:wrap; gap:8px;}
+    .badge{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(96,165,250,.28);
+      background: rgba(96,165,250,.10);
+      color:rgba(229,231,235,.96);
+      font-size:12.5px;
+      font-weight:850;
+    }
+
+    /* Below sections */
+    .below{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .below{grid-template-columns:1fr;}
+    }
+    .section{padding:16px;}
+    .h2{
+      margin:0 0 10px;
+      font-size:15px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .p{
+      margin:0;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.85;
+    }
+
+    .steps{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 860px){
+      .steps{grid-template-columns:1fr;}
+    }
+    .step{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:14px;
+      padding:12px;
+    }
+    .step b{display:block; margin-bottom:6px; font-size:14px;}
+    .step span{color:var(--muted2); font-size:13.5px; line-height:1.7;}
+
+    .tracks{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 860px){
+      .tracks{grid-template-columns:1fr;}
     }
     .track{
       border:1px solid var(--line);
@@ -195,30 +248,36 @@
       border-radius:14px;
       padding:12px;
     }
-    .track b{display:block; margin-bottom:6px; font-size:14px;}
-    .track ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.7; font-size:13px;}
+    .track .title{font-weight:900; margin-bottom:6px;}
+    .track .desc{color:var(--muted); font-size:13.5px; line-height:1.7; margin:0;}
+    .track .links{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
+    .mini-btn{
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      font-weight:850;
+      font-size:13px;
+    }
+
     .footer{
       margin-top:18px;
       text-align:center;
-      color:var(--muted);
+      color:var(--muted2);
       font-size:12px;
       line-height:1.6;
     }
 
-    /* 하단 네비 (3개 고정) */
+    /* Bottom nav */
     .bottom-nav{
-      position:fixed;
-      left:0; right:0; bottom:0;
+      position:fixed; left:0; right:0; bottom:0;
       padding: 10px 12px 14px;
-      background: linear-gradient(to top, rgba(11,15,25,.95), rgba(11,15,25,.55), transparent);
+      background: linear-gradient(to top, rgba(11,15,25,.96), rgba(11,15,25,.58), transparent);
       backdrop-filter: blur(10px);
     }
     .nav-inner{
-      max-width:980px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:10px;
+      max-width:980px; margin:0 auto;
+      display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;
     }
     .nav-btn{
       text-align:center;
@@ -226,125 +285,113 @@
       border-radius:14px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.03);
-      font-weight:800;
+      font-weight:900;
       font-size:14px;
     }
     .nav-btn.active{
-      border-color: rgba(96,165,250,.45);
-      background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(167,139,250,.12));
+      border-color: rgba(96,165,250,.52);
+      background: linear-gradient(135deg, rgba(96,165,250,.22), rgba(167,139,250,.12));
+      box-shadow: 0 10px 26px rgba(96,165,250,.08);
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="top">
+    <!-- Top bar -->
+    <div class="topbar">
       <div class="brand"><span class="dot"></span>개인 과외 프로필</div>
-      <div class="pill">링크 공유용 · 검색 노출 최소화</div>
+      <div class="right-tools">
+        <span class="pill">링크 공유용 · 검색 노출 최소화</span>
+        <a class="btn primary" href="https://open.kakao.com/o/sSMIM4di" target="_blank" rel="noopener">카톡 오픈채팅 문의</a>
+      </div>
     </div>
 
+    <!-- Hero -->
     <div class="card hero">
       <div class="hero-grid">
-
-        <!-- 좌: 프로필 -->
-        <div class="profile-box">
+        <!-- Left: profile -->
+        <div class="profile">
           <div class="avatar" aria-label="프로필 사진">
-            <!-- profile.jpg를 폴더에 넣으면 자동으로 사진이 뜹니다 -->
             <img src="profile.jpg" alt="프로필 사진" onerror="this.remove(); this.parentElement.textContent='PROFILE';">
           </div>
-          <div class="tags">
-            <span class="tag">수학 · 미적분</span>
-            <span class="tag">문제 해석 & 사고 구조화</span>
-            <span class="tag">온라인 코칭 가능</span>
+          <div class="chips">
+            <span class="chip">수학 · 미적분</span>
+            <span class="chip">문제 해석/구조화</span>
+            <span class="chip">온라인 코칭</span>
           </div>
-          <div class="cta">
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="class.html">수업 안내</a>
             <a class="btn" href="teacher.html">선생님 상세</a>
           </div>
         </div>
 
-        <!-- 우: 약력/실적 + 요약 -->
+        <!-- Right: key info -->
         <div class="info">
-          <div>
-            <h1>개념 이해를 바탕으로<br/>풀이 사고 과정을 구조화하는 수업</h1>
-            <p class="sub">
-              암기 중심이 아니라 <b>문제 해석 → 핵심 개념 식별 → 사고 단계 설계</b>를 통해,
-              학생이 스스로 설명 가능한 이해에 도달하도록 지도합니다.
-            </p>
-          </div>
+          <h1 class="headline">암기 대신 이해.<br/>풀이 대신 구조.</h1>
+          <p class="one-liner">
+            학생의 풀이를 “정답”이 아니라 <b>해석의 기준</b>과 <b>사고 단계</b> 관점에서 점검해,
+            응용 가능한 실력을 만들도록 돕습니다.
+          </p>
 
-          <div class="section">
-            <div class="h2">약력</div>
-            <ul class="list">
-              <li>인천과학예술영재학교 졸업 (2026)</li>
-              <li>서울대학교 건축학과 입학 (2026)</li>
-            </ul>
-          </div>
+          <div class="split">
+            <div class="box">
+              <div class="label">약력</div>
+              <ul class="list">
+                <li>인천과학예술영재학교 졸업 (2026)</li>
+                <li>서울대학교 건축학과 입학 (2026)</li>
+              </ul>
+            </div>
 
-          <div class="section">
-            <div class="h2">수상 · 성과</div>
-            <ul class="list">
-              <li>제15회 전국학생설계경진대회 금상</li>
-              <li>2025 KSEF 금상</li>
-              <li>2025 Regeneron ISEF Fourth Place Award</li>
-              <li>SCIE 저널 논문 게재</li>
-            </ul>
-            <p class="sub" style="margin-top:8px;">
-              연구·대회 준비 코칭은 <b>온라인</b>으로 진행합니다. (자세한 내용은 ‘대회 코칭’ 페이지 참고)
-            </p>
+            <div class="box">
+              <div class="label">수상 · 성과</div>
+              <div class="badges">
+                <span class="badge">전국설계경진 금상</span>
+                <span class="badge">KSEF 금상(2025)</span>
+                <span class="badge">Regeneron ISEF 4th(2025)</span>
+                <span class="badge">SCIE 게재</span>
+              </div>
+              <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="mini-btn" href="research.html">대회 코칭 상세</a>
+                <a class="mini-btn" href="https://open.kakao.com/o/sSMIM4di" target="_blank" rel="noopener">문의하기</a>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
 
+    <!-- Below -->
     <div class="below">
-      <div class="card mini">
-        <div class="h2">나를 소개하는 한 문장</div>
-        <p>
-          저는 학생의 성적이나 결과를 대신 만들어 주는 사람이 아니라,<br/>
-          <span class="strong">스스로 생각하고 설명할 수 있는 기준</span>을 함께 만들어 주는 사람입니다.
+      <!-- Left: philosophy (moved down as you requested) -->
+      <div class="card section">
+        <div class="h2">수업 철학</div>
+        <p class="p">
+          <b>개념 이해를 바탕으로 풀이 사고 과정을 구조화하는 수업</b><br/>
+          암기 중심이 아니라 <b>문제 해석 → 핵심 개념 식별 → 사고 단계 설계</b>를 통해,
+          학생이 스스로 설명 가능한 이해에 도달하도록 지도합니다.
         </p>
-        <p style="margin-top:10px;">
-          자세한 공부법과 수업 철학은 <a href="teacher.html" class="btn" style="padding:8px 10px; border-radius:10px; display:inline-flex;">선생님 상세</a>에서 확인하실 수 있습니다.
-        </p>
-      </div>
 
-      <div class="card mini">
-        <div class="h2">TRACK 안내</div>
-        <p>목표에 따라 아래 두 트랙 중 선택하여 진행합니다.</p>
-        <div class="track-grid">
-          <div class="track">
-            <b>교과 과외 (수학/미적분)</b>
-            <ul>
-              <li>개념 이해 기반 문제 해석</li>
-              <li>풀이 사고 단계의 구조화</li>
-              <li>과제·피드백을 통한 보완</li>
-            </ul>
+        <div class="steps" aria-label="수업 3단계">
+          <div class="step">
+            <b>1) 문제 해석</b>
+            <span>조건이 ‘무슨 역할’을 하는지, 무엇이 핵심인지부터 정리합니다.</span>
           </div>
-          <div class="track">
-            <b>연구·대회 코칭 (온라인)</b>
-            <ul>
-              <li>주제 선정 및 연구 설계</li>
-              <li>진행 피드백(실험/해석/논리)</li>
-              <li>PPT·논문·포스터 피드백</li>
-            </ul>
+          <div class="step">
+            <b>2) 개념 식별</b>
+            <span>외운 풀이가 아니라, 적용해야 할 개념의 논리 구조를 잡습니다.</span>
+          </div>
+          <div class="step">
+            <b>3) 단계 설계</b>
+            <span>반드시 거쳐야 할 사고 단계를 쪼개어 ‘재현 가능한 틀’로 만듭니다.</span>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="footer">
-      본 페이지는 링크 공유용으로 제작되었습니다. (URL을 아는 사람은 접속할 수 있습니다)
-    </div>
-  </div>
-
-  <div class="bottom-nav" role="navigation" aria-label="하단 메뉴">
-    <div class="nav-inner">
-      <a class="nav-btn active" href="index.html">Home</a>
-      <a class="nav-btn" href="class.html">수업안내</a>
-      <a class="nav-btn" href="research.html">대회 코칭</a>
-    </div>
-  </div>
-</body>
-</html>
+      <!-- Right: short self-intro -->
+      <div class="card section">
+        <div class="h2">한 문장 소개</div>
+        <p class="p">
+          저는 학생의 결과를 대신 만들어 주는 사람이 아니라,<br/>
+          <b>스스로 해결할 수 있는 기준</b>을 함께 만드는 사람입니다.
+        </p>
