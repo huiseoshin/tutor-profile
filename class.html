@@ -12,10 +12,16 @@
       background:radial-gradient(900px 500px at 15% 0%, rgba(96,165,250,.14), transparent 55%),radial-gradient(900px 500px at 85% 0%, rgba(167,139,250,.12), transparent 60%),var(--bg);}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:980px;margin:0 auto;padding:26px 18px 40px;}
-    .top{display:flex;align-items:center;justify-content:space-between;padding:8px 0 18px;}
+
+    /* Top bar */
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 18px;}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;}
     .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));}
+    .top-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
     .pill{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);font-size:13px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-weight:800;font-size:14px;white-space:nowrap;}
+    .btn.primary{border-color: rgba(96,165,250,.45);background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(167,139,250,.12));}
+
     .card{border:1px solid var(--line);background:rgba(17,24,39,.65);border-radius:var(--radius);box-shadow:var(--shadow);}
     .header{padding:16px;}
     h1{margin:0;font-size:20px;}
@@ -25,6 +31,7 @@
     .block h2{margin:0 0 10px;font-size:16px;}
     .block p,.block li{color:var(--muted);line-height:1.85;font-size:14px;}
     ul{margin:0;padding-left:18px;}
+
     .bottom-nav{position:fixed;left:0;right:0;bottom:0;padding:10px 12px 14px;background:linear-gradient(to top, rgba(11,15,25,.95), rgba(11,15,25,.55), transparent);backdrop-filter:blur(10px);}
     .nav-inner{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
     .nav-btn{text-align:center;padding:12px 10px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-weight:800;font-size:14px;}
@@ -35,26 +42,45 @@
   <div class="wrap">
     <div class="top">
       <div class="brand"><span class="dot"></span>수업 안내</div>
-      <div class="pill"><a href="index.html">Home</a></div>
+
+      <!-- Home + 카톡 문의 (우측 상단) -->
+      <div class="top-right">
+        <a class="btn primary" href="YOUR_OPENCHAT_URL" target="_blank" rel="noopener">카톡 오픈채팅 문의</a>
+        <a class="pill" href="index.html">Home</a>
+      </div>
     </div>
 
     <div class="card">
       <div class="header">
         <h1>수업 운영 안내</h1>
-        <p class="sub">수업료, 시범 과외, 과제·평가, 학부모 안내 항목을 투명하게 정리합니다.</p>
+        <p class="sub">수업 방식, 시범 과외, 과제·평가, 학부모 안내, 수업료 항목을 투명하게 정리합니다.</p>
       </div>
 
       <div class="content">
+
+        <!-- NEW: 수업 방식 (추가) -->
         <div class="block">
-          <h2>수업료 (필수)</h2>
+          <h2>수업 방식</h2>
+
+          <p style="margin:0 0 8px;"><b>1. 개념 구조화 중심 수업</b></p>
           <ul>
-            <li><b>고등학생:</b> 시간당 <b>4만 원부터</b></li>
-            <li><b>중학생:</b> 시간당 <b>3만 5천 원부터</b></li>
+            <li>공식을 암기하거나 바로 적용하기보다, <b>개념이 만들어지는 흐름</b>부터 설명합니다.</li>
+            <li>단원 내 개념 간 <b>연결 관계</b>를 정리하여, 문제 유형이 바뀌어도 대응할 수 있도록 지도합니다.</li>
+            <li>암기 위주의 학습이 아닌, <b>이해를 기반으로 사고력을 통해 풀이가 가능</b>한 학습을 지향합니다.</li>
           </ul>
-          <p style="margin-top:10px;">
-            학생 개인의 <b>학습 수준, 목표, 수업 내용</b>에 따라 수업료는 조정될 수 있습니다.
-            자세한 수업 방식과 비용은 상담 후 안내드립니다.
-          </p>
+
+          <p style="margin:12px 0 8px;"><b>2. 사고 과정 언어화 훈련</b></p>
+          <ul>
+            <li>풀이 과정에서 “왜 이 식을 세웠는지”, “다른 선택지는 왜 배제했는지”를 <b>말로 설명</b>하게 합니다.</li>
+            <li>말로 설명되지 않는 부분은 <b>개념이 불완전</b>하다고 보고, 그 지점을 집중적으로 보완합니다.</li>
+          </ul>
+
+          <p style="margin:12px 0 8px;"><b>3. 학생 맞춤형 수업 흐름</b></p>
+          <ul>
+            <li>학생의 수준과 목표에 따라 수업 비중을 조절합니다.</li>
+            <li><b>개념 설명 중심</b> / <b>문제 풀이 중심</b> / <b>질문·토론 중심</b> 중 학생에게 맞는 방식으로 구성합니다.</li>
+            <li>정해진 커리큘럼을 일방적으로 따라가기보다, 학생의 반응에 따라 <b>수업을 유연하게 조정</b>합니다.</li>
+          </ul>
         </div>
 
         <div class="block">
@@ -102,6 +128,20 @@
             단기 성과보다 <b>학습의 안정성과 지속적인 성장</b>을 우선합니다.
           </p>
         </div>
+
+        <!-- 수업료: 가장 아래로 이동 -->
+        <div class="block">
+          <h2>수업료 (필수)</h2>
+          <ul>
+            <li><b>고등학생:</b> 시간당 <b>4만 원부터</b></li>
+            <li><b>중학생:</b> 시간당 <b>3만 5천 원부터</b></li>
+          </ul>
+          <p style="margin-top:10px;">
+            학생 개인의 <b>학습 수준, 목표, 수업 내용</b>에 따라 수업료는 조정될 수 있습니다.
+            자세한 수업 방식과 비용은 상담 후 안내드립니다.
+          </p>
+        </div>
+
       </div>
     </div>
   </div>
